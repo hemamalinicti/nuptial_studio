@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography & Filming Services | Nuptial Studio Coimbatore</title>
+  <meta name="description" content="Explore our professional photography services in Coimbatore: Pre-Wedding & Post-Wedding, Traditional Wedding, Maternity, Birthday, and Puberty Function.">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <style>
+    .services-hero-banner {
+      min-height: 44vh;
+      padding-top: 7.5rem;
+      padding-bottom: 3.5rem;
+      background: linear-gradient(180deg, rgba(35, 12, 20, 0.52) 0%, rgba(20, 7, 12, 0.78) 100%), url('assets/images/plan-south-indian-silk.png');
+      background-size: cover;
+      background-position: center 30%;
+      text-align: center;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .service-detail-block {
+      background: #ffffff;
+      border: 1.5px solid var(--accent-pink-border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 6px 25px rgba(123, 17, 58, 0.04);
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      height: 380px;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .service-detail-block:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(216, 58, 111, 0.18);
+      border-color: var(--accent-pink);
+    }
+
+    .service-detail-block.reverse {
+      grid-template-columns: 1.35fr 1fr;
+    }
+
+    .service-detail-block.reverse .service-detail-img-box {
+      order: 2;
+    }
+
+    .service-detail-block.reverse .service-detail-info {
+      order: 1;
+    }
+
+    @media (max-width: 1080px) {
+      .service-detail-block, .service-detail-block.reverse {
+        grid-template-columns: 1fr 1.2fr;
+        height: 390px;
+      }
+    }
+
+    @media (max-width: 991px) {
+      .service-detail-block, .service-detail-block.reverse {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+      .service-detail-block.reverse .service-detail-img-box {
+        order: 1;
+      }
+      .service-detail-block.reverse .service-detail-info {
+        order: 2;
+      }
+    }
+
+    .service-detail-img-box {
+      position: relative;
+      height: 100%;
+      background: #f0ebe4;
+      overflow: hidden;
+    }
+
+    @media (max-width: 991px) {
+      .service-detail-img-box {
+        height: 280px;
+      }
+    }
+
+    .service-detail-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Person-focused focal points for each service */
+    #pre-post-wedding .service-detail-img-box img {
+      object-position: center 78%;
+    }
+
+    #traditional-wedding .service-detail-img-box img {
+      object-position: center 30%;
+    }
+
+    #maternity .service-detail-img-box img {
+      object-position: center 35%;
+    }
+
+    #birthday .service-detail-img-box img {
+      object-position: center 45%;
+    }
+
+    #puberty .service-detail-img-box img {
+      object-position: center 78%;
+    }
+
+    .service-detail-block:hover .service-detail-img-box img {
+      transform: scale(1.05);
+    }
+
+    .service-detail-info {
+      padding: 1.8rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 1200px) {
+      .service-detail-info {
+        padding: 1.6rem 2rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .service-detail-info {
+        padding: 1.5rem 1.2rem;
+      }
+    }
+
+    .service-tag-label {
+      font-family: var(--font-heading);
+      font-size: 0.76rem;
+      letter-spacing: 2.2px;
+      color: var(--accent-pink);
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+      font-weight: 700;
+      display: block;
+    }
+
+    .service-detail-title {
+      font-family: var(--font-serif);
+      font-size: 1.62rem;
+      font-weight: 700;
+      color: var(--accent-burgundy);
+      margin-bottom: 0.55rem;
+      line-height: 1.25;
+      letter-spacing: 0.2px;
+    }
+
+    .service-detail-desc {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.58;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .service-highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.48rem 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    @media (max-width: 540px) {
+      .service-highlights-grid {
+        grid-template-columns: 1fr;
+        gap: 0.45rem;
+      }
+    }
+
+    .service-highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-family: var(--font-body);
+      font-size: 0.83rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+
+    .service-highlight-item i {
+      color: var(--accent-pink);
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .service-actions-row {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      margin-top: 0.2rem;
+    }
+
+    .btn-whatsapp-action {
+      background: #25D366 !important;
+      color: #ffffff !important;
+      border: 1px solid #1ebc59 !important;
+      font-family: var(--font-heading) !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.56rem 1.25rem;
+      font-size: 0.84rem;
+      border-radius: 7px;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-whatsapp-action:hover {
+      background: #1da851 !important;
+      border-color: #1da851 !important;
+      color: #ffffff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.38);
+    }
+
+    .btn-estimate-action {
+      background: linear-gradient(135deg, #7B113A 0%, #9B1849 100%) !important;
+      color: #ffffff !important;
+      border: 1px solid #7B113A !important;
+      font-family: var(--font-heading) !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.56rem 1.25rem;
+      font-size: 0.84rem;
+      border-radius: 7px;
+      box-shadow: 0 4px 12px rgba(123, 17, 58, 0.25);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-estimate-action:hover {
+      background: linear-gradient(135deg, #9B1849 0%, #D83A6F 100%) !important;
+      border-color: #D83A6F !important;
+      color: #ffffff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(216, 58, 111, 0.4);
+    }
+
+    .btn-estimate-action:hover {
+      background: linear-gradient(135deg, #876732 0%, #684c1f 100%) !important;
+      border-color: #5c4219 !important;
+      color: #ffffff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(157, 123, 66, 0.38);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo" aria-label="Nuptial Studio Home">
+        <img src="assets/images/nuptial-logo-gold.png" alt="Nuptial Studio Logo" class="brand-logo-img">
+        <span class="logo-subtext">STUDIO</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <div class="nav-item-dropdown">
+          <a href="services.html" class="nav-link active">Services <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem; margin-left: 3px;"></i></a>
+          <div class="dropdown-menu">
+            <a href="services.html#pre-post-wedding">Pre & Post Wedding</a>
+            <a href="services.html#traditional-wedding">Traditional Wedding</a>
+            <a href="services.html#maternity">Maternity Photoshoot</a>
+            <a href="services.html#birthday">Birthday Photoshoot</a>
+            <a href="services.html#puberty">Puberty Function</a>
+          </div>
+        </div>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="quote.html" class="btn-get-quote">
+          Get A Quote
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="services-hero-banner">
+    <div class="container">
+      <span style="color: var(--accent-pink); letter-spacing: 3px; text-transform: uppercase; font-size: 0.88rem; font-weight: 700; font-family: var(--font-heading); text-shadow: 0 2px 8px rgba(0,0,0,0.85);">Milestone Visual Storytelling</span>
+      <h1 class="font-serif" style="color: #ffffff !important; font-size: 3rem; margin: 0.6rem 0 1rem; text-shadow: 0 2px 16px rgba(0,0,0,0.85); font-weight: 700;">Photography & Filming Services</h1>
+      <p style="color: #ffffff; max-width: 720px; margin: 0 auto; font-size: 1.05rem; text-shadow: 0 1px 8px rgba(0,0,0,0.85); font-weight: 400;">Specialized photography and 4K cinema coverage for every chapter in life — sacred weddings, love stories, new beginnings, and family celebrations.</p>
+    </div>
+  </section>
+
+  <!-- Services Detailed Showcase Section -->
+  <section class="section-padding" style="background: var(--bg-primary);">
+    <div class="container">
+
+      <!-- 1. Pre-Wedding and Post-Wedding -->
+      <div class="service-detail-block scroll-animate" id="pre-post-wedding">
+        <div class="service-detail-img-box">
+          <img src="assets/images/service-prewedding-couple.png" alt="Pre-Wedding and Post-Wedding Photoshoot" loading="lazy">
+        </div>
+        <div class="service-detail-info">
+          <span class="service-tag-label">Couple Stories & Romance</span>
+          <h2 class="service-detail-title">Pre-Wedding & Post-Wedding Shoots</h2>
+          <p class="service-detail-desc">Romantic outdoor visual storytelling across South India (Ooty, Valparai, Kodaikanal, Kochi & beachside resorts). We capture authentic chemistry with multi-camera 4K cinematography, cinematic teasers, and artistic drone aerial perspectives.</p>
+          
+          <div class="service-highlights-grid">
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>4K Drone Aerial Cinema Video</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Multiple Wardrobe Concept Themes</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Same-Day Instagram 4K Reels</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>50+ Retouched Fine Art Frames</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Destination Location Planning</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Cloud Access & Master Drive</span></div>
+          </div>
+
+          <div class="service-actions-row">
+            <a href="https://wa.me/919876543210?text=Hi%20Nuptial%20Studio!%20I%20would%20like%20to%20book/inquire%20about%20Pre-Wedding%20and%20Post-Wedding%20shoot%20packages." target="_blank" class="btn-whatsapp-action">
+              <i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp
+            </a>
+            <a href="quote.html" class="btn-estimate-action">
+              <i class="fa-solid fa-calculator"></i> Calculate Estimate
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Traditional Wedding -->
+      <div class="service-detail-block reverse scroll-animate" id="traditional-wedding">
+        <div class="service-detail-img-box">
+          <img src="assets/images/service-traditional-muhurtham.png" alt="Traditional Wedding Photography" loading="lazy">
+        </div>
+        <div class="service-detail-info">
+          <span class="service-tag-label">Sacred Heritage & Rituals</span>
+          <h2 class="service-detail-title">Traditional Wedding Photography</h2>
+          <p class="service-detail-desc">Documenting sacred South Indian marriage rituals with supreme cultural fidelity and cinematic elegance. From auspicious early morning Muhurtham, Mangalyadharanam (Tali tying), and Vedic homam mantras to grand evening receptions, we ensure no precious blessing is missed.</p>
+          
+          <div class="service-highlights-grid">
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Dual Senior Traditional & Candid Crew</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Full Traditional HD Feature Film</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Handcrafted Velvet / Leather Canvera Album</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Mangala Vaathiyam & Ritual Highlights</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Elder Family Blessing Group Portraits</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Same-Day 1-Min Social Media Teaser</span></div>
+          </div>
+
+          <div class="service-actions-row">
+            <a href="https://wa.me/919876543210?text=Hi%20Nuptial%20Studio!%20I%20would%20like%20to%20book/inquire%20about%20Traditional%20Wedding%20photography%20packages." target="_blank" class="btn-whatsapp-action">
+              <i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp
+            </a>
+            <a href="quote.html" class="btn-estimate-action">
+              <i class="fa-solid fa-calculator"></i> Calculate Estimate
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Maternity Photoshoot -->
+      <div class="service-detail-block scroll-animate" id="maternity">
+        <div class="service-detail-img-box">
+          <img src="assets/images/service-maternity-golden.png" alt="Maternity Photoshoot" loading="lazy">
+        </div>
+        <div class="service-detail-info">
+          <span class="service-tag-label">Motherhood & New Beginnings</span>
+          <h2 class="service-detail-title">Maternity Photoshoot</h2>
+          <p class="service-detail-desc">Celebrate the radiant beauty of motherhood with graceful, emotionally intimate portrait sessions. Held in our temperature-controlled Coimbatore studio with designer maternity gowns or in sunlit outdoor private gardens, we capture the pure anticipation of welcoming your little one.</p>
+          
+          <div class="service-highlights-grid">
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Flowing Designer Draped Gowns & Props</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Partner & Family Intimate Portrait Frames</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Studio Lighting & Outdoor Sunlit Setup</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Artistic Fine Art Color Grading</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Hair & Wardrobe Styling Guidance</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>High-Res Digital Canvas Files</span></div>
+          </div>
+
+          <div class="service-actions-row">
+            <a href="https://wa.me/919876543210?text=Hi%20Nuptial%20Studio!%20I%20would%20like%20to%20book/inquire%20about%20Maternity%20Photoshoot%20packages." target="_blank" class="btn-whatsapp-action">
+              <i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp
+            </a>
+            <a href="quote.html" class="btn-estimate-action">
+              <i class="fa-solid fa-calculator"></i> Calculate Estimate
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Birthday Photoshoot -->
+      <div class="service-detail-block reverse scroll-animate" id="birthday">
+        <div class="service-detail-img-box">
+          <img src="assets/images/service-birthday-cakesmash.png" alt="Birthday Photoshoot" loading="lazy">
+        </div>
+        <div class="service-detail-info">
+          <span class="service-tag-label">Milestones & Joyful Smiles</span>
+          <h2 class="service-detail-title">Birthday Photoshoot</h2>
+          <p class="service-detail-desc">Capture the laughter, excitement, and milestone memories of birthday celebrations. Whether it's a 1st birthday cake smash with customized balloon backdrops or a grand milestone jubilee party, our photographers capture every joyful expression in high-speed, crisp clarity.</p>
+          
+          <div class="service-highlights-grid">
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Custom Theme Backdrops & Cake Smash</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Candid Kids & Guest Playful Moments</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>4K Social Media Party Highlight Video</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Custom Printed Keepsake Mini-Album</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Instant Same-Day Digital Proofing</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>High-Res Retouched Portrait Soft Copies</span></div>
+          </div>
+
+          <div class="service-actions-row">
+            <a href="https://wa.me/919876543210?text=Hi%20Nuptial%20Studio!%20I%20would%20like%20to%20book/inquire%20about%20Birthday%20Photoshoot%20packages." target="_blank" class="btn-whatsapp-action">
+              <i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp
+            </a>
+            <a href="quote.html" class="btn-estimate-action">
+              <i class="fa-solid fa-calculator"></i> Calculate Estimate
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Puberty Function -->
+      <div class="service-detail-block scroll-animate" id="puberty">
+        <div class="service-detail-img-box">
+          <img src="assets/images/service-puberty-turmeric.png" alt="Puberty Function Manjal Neerattu Vizha" loading="lazy">
+        </div>
+        <div class="service-detail-info">
+          <span class="service-tag-label">Cultural Coming of Age</span>
+          <h2 class="service-detail-title">Puberty Function (Manjal Neerattu Vizha)</h2>
+          <p class="service-detail-desc">Preserving the sacred South Indian Manjal Neerattu Vizha (Ritu Kala Samskara) with dignified reverence. Documenting turmeric bath rituals, maternal uncle seer varisai presentations, traditional silk pattu pavada styling, mandap poojas, and joyous family celebrations.</p>
+          
+          <div class="service-highlights-grid">
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Turmeric Bath & Seer Varisai Rituals</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Pattu Pavada & Half Saree Fine Art Portraits</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Full Traditional HD Video & 2-Min Teaser</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Mandap Decor & Floral Backdrop Frames</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Extended Family Blessing Group Shots</span></div>
+            <div class="service-highlight-item"><i class="fa-solid fa-circle-check"></i> <span>Custom Printed Traditional Keepsake Album</span></div>
+          </div>
+
+          <div class="service-actions-row">
+            <a href="https://wa.me/919876543210?text=Hi%20Nuptial%20Studio!%20I%20would%20like%20to%20book/inquire%20about%20Puberty%20Function%20(Manjal%20Neerattu%20Vizha)%20packages." target="_blank" class="btn-whatsapp-action">
+              <i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp
+            </a>
+            <a href="quote.html" class="btn-estimate-action">
+              <i class="fa-solid fa-calculator"></i> Calculate Estimate
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Custom Quotation CTA Banner -->
+  <section class="custom-cta-banner">
+    <div class="container" style="max-width: 860px; position: relative; z-index: 2;">
+      <span class="cta-badge"><i class="fa-solid fa-sparkles" style="font-size: 0.75rem;"></i> Bespoke Packages & Outstation</span>
+      <h2 class="cta-title">Have a Custom Event or Outstation Shoot?</h2>
+      <p class="cta-desc">We tailor multi-camera crew size, cinematic drone aerials, multi-day coverage schedules, and handcrafted Italian Canvera albums to fit your dream celebration anywhere in India.</p>
+      <div class="cta-buttons-wrap">
+        <a href="quote.html" class="btn-cta-gold">
+          <i class="fa-solid fa-calculator"></i> Calculate Custom Price
+        </a>
+        <a href="gallery.html" class="btn-cta-glass">
+          <i class="fa-solid fa-images"></i> Explore Portfolio Gallery
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="margin-bottom: 1rem;" aria-label="Nuptial Studio Home">
+            <img src="assets/images/nuptial-logo-gold.png" alt="Nuptial Studio Logo" class="brand-logo-img">
+            <span class="logo-subtext">STUDIO</span>
+          </a>
+          <p>Nuptial Studio — Specializing in candid wedding photography, 4K cinematic films, and pre-wedding concept shoots in Coimbatore.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="tel:+919876543210" class="social-icon" aria-label="Call Nuptial Studio"><i class="fa-solid fa-phone"></i></a>
+            <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Studio</a></li>
+            <li><a href="services.html">Packages & Services</a></li>
+            <li><a href="gallery.html">Portfolio Gallery</a></li>
+            <li><a href="contact.html">Contact & Booking</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-services">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html#pre-post-wedding">Pre-Wedding & Post-Wedding</a></li>
+            <li><a href="services.html#traditional-wedding">Traditional Wedding</a></li>
+            <li><a href="services.html#maternity">Maternity Photoshoot</a></li>
+            <li><a href="services.html#birthday">Birthday Photoshoot</a></li>
+            <li><a href="services.html#puberty">Puberty Function</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Studio</h4>
+          <ul class="footer-contact-info">
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>69, Bharathi Park 8th Cross Rd, Saibaba Colony, Coimbatore, Tamil Nadu 641011</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i>
+              <span>nuptialstudio@gmail.com</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i>
+              <span>+91 98765 43210 / +91 94433 22110</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nuptial Studio. All Rights Reserved.</p>
+        <div class="footer-legal-links">
+          <a href="privacy-policy.html" class="footer-policy-link">Privacy Policy</a>
+          <span class="footer-legal-separator">•</span>
+          <a href="terms-conditions.html" class="footer-policy-link">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp CTA -->
+  <a href="https://wa.me/919876543210?text=Hi%20Nuptial%20Studio!%20I%20want%20to%20check%20photography%20date%20availability." target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

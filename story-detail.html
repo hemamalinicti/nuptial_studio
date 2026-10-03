@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Story & Event Gallery | Nuptial Studio</title>
+  <meta name="description" content="Explore real wedding stories, multi-event photography highlights, diverse outfits, and candid moments captured by Nuptial Studio.">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <style>
+    /* Dedicated Styles for Wedding Story Detail Page */
+    .story-hero-section {
+      padding-top: 7.5rem;
+      padding-bottom: 3.5rem;
+      background: linear-gradient(180deg, #200B14 0%, #30101E 100%);
+      color: #ffffff;
+      position: relative;
+      border-bottom: 1px solid rgba(243, 186, 205, 0.25);
+    }
+
+    .story-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+      color: #E2C5CF;
+    }
+
+    .story-breadcrumb a {
+      color: var(--accent-pink);
+      transition: color 0.3s ease;
+    }
+
+    .story-breadcrumb a:hover {
+      color: #ffffff;
+    }
+
+    .story-hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (max-width: 991px) {
+      .story-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .story-hero-info h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5.5vw, 3.2rem);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+
+    .story-hero-pkg-title {
+      font-family: var(--font-heading);
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+      color: var(--accent-pink-bright);
+      letter-spacing: 1.5px;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .story-hero-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1rem, 2.8vw, 1.25rem);
+      color: rgba(255, 255, 255, 0.95);
+      line-height: 1.6;
+      border-left: 3.5px solid var(--accent-pink);
+      padding-left: 1.25rem;
+      margin-bottom: 1.8rem;
+      background: rgba(255, 255, 255, 0.05);
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .story-hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 2rem;
+    }
+
+    .story-meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(248, 180, 200, 0.25);
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.86rem;
+      color: #f1f5f9;
+    }
+
+    .story-meta-pill i {
+      color: var(--accent-pink-bright);
+    }
+
+    .story-hero-cover-frame {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border: 2px solid var(--accent-pink-border);
+    }
+
+    .story-hero-cover-frame img {
+      width: 100%;
+      height: clamp(260px, 45vw, 420px);
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .story-hero-cover-frame:hover img {
+      transform: scale(1.03);
+    }
+
+    /* Event Gallery Grid & Outfits Section */
+    .event-gallery-section {
+      padding: 4rem 0;
+      background: var(--bg-primary);
+    }
+
+    .gallery-intro-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+    }
+
+    .gallery-intro-bar h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4.5vw, 2.4rem);
+      color: var(--accent-burgundy);
+      margin-bottom: 0.35rem;
+    }
+
+    .gallery-intro-bar p {
+      color: var(--text-secondary);
+      font-size: 0.96rem;
+    }
+
+    .story-photos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 991px) {
+      .story-photos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .story-photos-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .gallery-intro-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .story-photo-card {
+      background: #ffffff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(123, 17, 58, 0.05);
+      border: 1px solid var(--accent-pink-border);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .story-photo-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(216, 58, 111, 0.15);
+      border-color: var(--accent-pink);
+    }
+
+    .story-photo-img-holder {
+      position: relative;
+      width: 100%;
+      height: 310px;
+      overflow: hidden;
+      background: #e2d9cd;
+    }
+
+    .story-photo-img-holder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .story-photo-card:hover .story-photo-img-holder img {
+      transform: scale(1.06);
+    }
+
+    .photo-zoom-icon {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 34px;
+      height: 34px;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--accent-burgundy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform: scale(0.8);
+    }
+
+    .story-photo-card:hover .photo-zoom-icon {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .story-photo-body {
+      padding: 1.25rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .story-photo-caption {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent-burgundy);
+      margin-bottom: 0.75rem;
+      line-height: 1.35;
+    }
+
+    .story-outfit-tag {
+      font-size: 0.82rem;
+      color: var(--accent-burgundy);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--bg-pink-pill);
+      padding: 0.35rem 0.7rem;
+      border-radius: 6px;
+      border: 1px solid var(--accent-pink-border);
+      font-weight: 600;
+    }
+
+    .story-outfit-tag i {
+      color: var(--accent-pink);
+      font-size: 0.78rem;
+    }
+
+    /* Event Itinerary & Deliverables */
+    .story-details-section {
+      padding: 4.5rem 0;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-light);
+    }
+
+    .details-two-col {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3.5rem;
+    }
+
+    @media (max-width: 991px) {
+      .details-two-col {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    .story-itinerary-card, .story-inclusions-card {
+      background: var(--bg-pink-light);
+      padding: 2.2rem;
+      border-radius: 12px;
+      border: 1.5px solid var(--accent-pink-border);
+    }
+
+    .story-card-heading {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: var(--accent-burgundy);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+    }
+
+    .story-card-heading i {
+      color: var(--accent-pink);
+    }
+
+    .itinerary-step {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 1.8rem;
+      border-left: 2px solid var(--accent-pink);
+    }
+
+    .itinerary-step::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      background: var(--accent-burgundy);
+      border-radius: 50%;
+    }
+
+    .itinerary-step h4 {
+      font-size: 1.05rem;
+      font-family: var(--font-heading);
+      color: var(--accent-burgundy);
+      margin-bottom: 0.35rem;
+      font-weight: 700;
+    }
+
+    .itinerary-step p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .inclusion-checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem;
+    }
+
+    .inclusion-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    .inclusion-checklist li i {
+      color: var(--accent-pink);
+      margin-top: 0.2rem;
+      font-size: 1rem;
+    }
+
+    .price-callout-box {
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1.5px dashed var(--accent-pink);
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .price-callout-amount {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent-burgundy);
+      margin: 0.35rem 0;
+    }
+
+    /* Lightbox Modal */
+    .story-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(35, 12, 20, 0.96);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .story-lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content-box {
+      position: relative;
+      max-width: 1000px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .lightbox-content-box img {
+      max-width: 100%;
+      max-height: 75vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+    }
+
+    .lightbox-caption-text {
+      color: #ffffff;
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .lightbox-outfit-text {
+      color: var(--accent-pink);
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      margin-top: 0.3rem;
+    }
+
+    .lightbox-close-btn {
+      position: absolute;
+      top: -45px;
+      right: 0;
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .lightbox-close-btn:hover {
+      color: var(--accent-pink);
+    }
+
+    .lightbox-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .lightbox-nav-btn:hover {
+      background: var(--accent-gold);
+      border-color: var(--accent-gold);
+      color: #ffffff;
+    }
+
+    .lightbox-nav-btn.prev {
+      left: -60px;
+    }
+
+    .lightbox-nav-btn.next {
+      right: -60px;
+    }
+
+    @media (max-width: 768px) {
+      .lightbox-nav-btn.prev { left: 10px; }
+      .lightbox-nav-btn.next { right: 10px; }
+      .story-hero-info h1 { font-size: 2.4rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo" aria-label="Nuptial Studio Home">
+        <img src="assets/images/nuptial-logo-gold.png" alt="Nuptial Studio Logo" class="brand-logo-img">
+        <span class="logo-subtext">STUDIO</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <div class="nav-item-dropdown">
+          <a href="services.html" class="nav-link">Services <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem; margin-left: 3px;"></i></a>
+          <div class="dropdown-menu">
+            <a href="services.html#pre-post-wedding">Pre & Post Wedding</a>
+            <a href="services.html#traditional-wedding">Traditional Wedding</a>
+            <a href="services.html#maternity">Maternity Photoshoot</a>
+            <a href="services.html#birthday">Birthday Photoshoot</a>
+            <a href="services.html#puberty">Puberty Function</a>
+          </div>
+        </div>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="quote.html" class="btn-get-quote">
+          Get A Quote
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dynamic Story Hero Section -->
+  <section class="story-hero-section">
+    <div class="container">
+      <div class="story-breadcrumb">
+        <a href="index.html">Home</a>
+        <span><i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i></span>
+        <a href="index.html">Wedding Stories</a>
+        <span><i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i></span>
+        <span id="breadcrumbCoupleName" style="color: #ffffff;">Couple Story</span>
+      </div>
+
+      <div class="story-hero-grid">
+        <div class="story-hero-info">
+          <div class="story-hero-pkg-title" id="heroPkgTitle">Signature Wedding Package</div>
+          <h1 id="heroCoupleName">Prithivi & Keerthana</h1>
+          
+          <div class="story-hero-quote" id="heroQuote">
+            "Prithivi and Keerthana share a love that grows deeper with every passing moment."
+          </div>
+
+          <div class="story-hero-meta" id="heroMeta">
+            <span class="story-meta-pill"><i class="fa-solid fa-location-dot"></i> <span id="metaLocation">Coimbatore</span></span>
+            <span class="story-meta-pill"><i class="fa-solid fa-calendar-check"></i> <span id="metaDuration">2 Days Coverage</span></span>
+            <span class="story-meta-pill"><i class="fa-solid fa-star"></i> <span id="metaRating">5.0 (184 Reviews)</span></span>
+            <span class="story-meta-pill"><i class="fa-solid fa-tag"></i> <span id="metaBasePrice">From ₹85,000</span></span>
+          </div>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="#eventGallery" class="btn btn-gold">
+              <i class="fa-solid fa-images"></i> View Event Gallery
+            </a>
+            <a href="quote.html" id="customEstimateBtn" class="btn" style="background: rgba(255,255,255,0.12); color: #ffffff; border: 1px solid rgba(255,255,255,0.25);">
+              <i class="fa-solid fa-calculator"></i> Customize This Package
+            </a>
+          </div>
+        </div>
+
+        <div class="story-hero-cover-frame">
+          <img id="heroCoverImg" src="assets/images/plan-royal-turban-wedding.png" alt="Couple Cover Photo">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 to 10 Multi-Event & Multi-Outfit Photos Section -->
+  <section class="event-gallery-section" id="eventGallery">
+    <div class="container">
+      <div class="gallery-intro-bar">
+        <div>
+          <span class="text-gold font-heading" style="text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem;">Event Highlights & Attires</span>
+          <h2>Wedding Day Photo Gallery</h2>
+          <p>Different ceremonies, coordinated designer outfits, and authentic moments from this celebration.</p>
+        </div>
+        <div>
+          <a href="index.html#packagesSection" class="btn-story-details" style="text-decoration: none; padding: 0.6rem 1.2rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+            <i class="fa-solid fa-arrow-left"></i> All Wedding Stories
+          </a>
+        </div>
+      </div>
+
+      <!-- Dynamic Photo Grid (6 - 10 Photos) -->
+      <div class="story-photos-grid" id="storyPhotosContainer">
+        <!-- Injected dynamically via story-detail.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Ceremony Itinerary & Package Deliverables -->
+  <section class="story-details-section">
+    <div class="container">
+      <div class="details-two-col">
+        <!-- Left: Itinerary Timeline -->
+        <div class="story-itinerary-card">
+          <h3 class="story-card-heading">
+            <i class="fa-solid fa-clock-rotate-left"></i> Ceremony Schedule & Coverage
+          </h3>
+          <div id="storyTimeline">
+            <!-- Timeline items rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Right: Deliverables & Pricing Box -->
+        <div class="story-inclusions-card">
+          <h3 class="story-card-heading">
+            <i class="fa-solid fa-box-open"></i> Deliverables & Master Inclusions
+          </h3>
+          <ul class="inclusion-checklist" id="storyInclusionsList">
+            <!-- Inclusions rendered dynamically -->
+          </ul>
+
+          <div class="price-callout-box">
+            <span style="font-size: 0.88rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Starting Package Estimate</span>
+            <div class="price-callout-amount" id="calloutBasePrice">₹85,000</div>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Includes all photography, 4K film edits, teaser & album.</p>
+            <a href="quote.html" id="bookPlanBtn" class="btn btn-gold" style="width: 100%; justify-content: center;">
+              <i class="fa-solid fa-calendar-plus"></i> Book or Customize Package
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Explore Other Couples Section -->
+  <section class="section-padding" style="background: var(--bg-ivory); border-top: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-title">
+        <span>Curated Portfolios</span>
+        <h2>Explore Other Wedding Stories</h2>
+        <p>Browse through more of our signature couple celebrations across South India.</p>
+      </div>
+
+      <div class="packages-grid" id="relatedStoriesContainer">
+        <!-- Related 3-4 couple cards injected dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Lightbox Modal -->
+  <div class="story-lightbox" id="storyLightbox">
+    <button class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Close image"><i class="fa-solid fa-xmark"></i></button>
+    <button class="lightbox-nav-btn prev" id="lightboxPrevBtn" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="lightbox-content-box">
+      <img id="lightboxCurrentImg" src="" alt="Enlarged Wedding Photo">
+      <div class="lightbox-caption-text" id="lightboxCaption"></div>
+      <div class="lightbox-outfit-text" id="lightboxOutfit"></div>
+    </div>
+    <button class="lightbox-nav-btn next" id="lightboxNextBtn" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="margin-bottom: 1rem;" aria-label="Nuptial Studio Home">
+            <img src="assets/images/nuptial-logo-gold.png" alt="Nuptial Studio Logo" class="brand-logo-img">
+            <span class="logo-subtext">STUDIO</span>
+          </a>
+          <p>Nuptial Studio — Specializing in candid wedding photography, 4K cinematic films, and pre-wedding concept shoots in Coimbatore.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="tel:+919876543210" class="social-icon" aria-label="Call Nuptial Studio"><i class="fa-solid fa-phone"></i></a>
+            <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Studio</a></li>
+            <li><a href="services.html">Packages & Services</a></li>
+            <li><a href="gallery.html">Portfolio Gallery</a></li>
+            <li><a href="contact.html">Contact & Booking</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-services">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html#pre-post-wedding">Pre-Wedding & Post-Wedding</a></li>
+            <li><a href="services.html#traditional-wedding">Traditional Wedding</a></li>
+            <li><a href="services.html#maternity">Maternity Photoshoot</a></li>
+            <li><a href="services.html#birthday">Birthday Photoshoot</a></li>
+            <li><a href="services.html#puberty">Puberty Function</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Studio</h4>
+          <ul class="footer-contact-info">
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>69, Bharathi Park 8th Cross Rd, Saibaba Colony, Coimbatore, Tamil Nadu 641011</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i>
+              <span>+91 98765 43210 / +91 94433 22110</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i>
+              <span>nuptialstudio@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nuptial Studio. All Rights Reserved.</p>
+        <div class="footer-legal-links">
+          <a href="privacy-policy.html" class="footer-policy-link">Privacy Policy</a>
+          <span class="footer-legal-separator">•</span>
+          <a href="terms-conditions.html" class="footer-policy-link">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/packages-data.js"></script>
+  <script src="assets/js/story-detail.js"></script>
+</body>
+
+</html>

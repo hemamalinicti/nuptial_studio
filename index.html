@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuptial Studio | Wedding Photography in Coimbatore</title>
+  <meta name="description" content="Nuptial Studio Coimbatore. Every love story deserves to be remembered beautifully. Candid wedding photography, cinematic films, and pre-wedding shoots in Coimbatore.">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+</head>
+
+<body>
+
+  <!-- Header & Navigation (Matching Cameron Pictures Header Layout) -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo" aria-label="Nuptial Studio Home">
+        <img src="assets/images/nuptial-logo-gold.png" alt="Nuptial Studio Logo" class="brand-logo-img">
+        <span class="logo-subtext">STUDIO</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <div class="nav-item-dropdown">
+          <a href="services.html" class="nav-link">Services <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem; margin-left: 3px;"></i></a>
+          <div class="dropdown-menu">
+            <a href="services.html#pre-post-wedding">Pre & Post Wedding</a>
+            <a href="services.html#traditional-wedding">Traditional Wedding</a>
+            <a href="services.html#maternity">Maternity Photoshoot</a>
+            <a href="services.html#birthday">Birthday Photoshoot</a>
+            <a href="services.html#puberty">Puberty Function</a>
+          </div>
+        </div>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="quote.html" class="btn-get-quote">
+          Get A Quote
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section (Exact Match to User Uploaded Screenshot with 5-Image Slider) -->
+  <section class="hero-cameron" id="heroSection">
+    <div class="hero-slider">
+      <div class="hero-slider-track" id="heroSliderTrack">
+        <div class="hero-slide active" style="background-image: url('assets/images/hero-south-indian-wedding-couple.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('assets/images/plan-royal-heritage-muhurtham.png');"></div>
+        <div class="hero-slide" style="background-image: url('assets/images/plan-south-indian-silk.png');"></div>
+        <div class="hero-slide" style="background-image: url('assets/images/service-prewedding-couple.png');"></div>
+        <div class="hero-slide" style="background-image: url('assets/images/plan-temple-pillar-portrait.png');"></div>
+      </div>
+    </div>
+    <div class="hero-cameron-overlay"></div>
+    <div class="hero-cameron-content">
+      <h1 class="hero-cameron-title font-serif">Every Love Story Deserves To Be Remembered Beautifully</h1>
+      <p class="hero-cameron-subtitle">Capturing timeless emotions, one frame at a time.</p>
+
+      <div class="hero-cameron-actions">
+        <a href="gallery.html" class="btn-view-project">View Project</a>
+        <button class="btn-watch-video" id="heroWatchVideoBtn">
+          <i class="fa-solid fa-play"></i> Watch Video
+        </button>
+      </div>
+    </div>
+
+    <!-- Hero Slider Navigation Controls -->
+    <button class="hero-slider-btn hero-slider-prev" id="heroPrevBtn" aria-label="Previous Slide">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="hero-slider-btn hero-slider-next" id="heroNextBtn" aria-label="Next Slide">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <!-- Hero Slider Dots -->
+    <div class="hero-slider-dots" id="heroSliderDots">
+      <span class="dot active" data-slide="0"></span>
+      <span class="dot" data-slide="1"></span>
+      <span class="dot" data-slide="2"></span>
+      <span class="dot" data-slide="3"></span>
+      <span class="dot" data-slide="4"></span>
+    </div>
+  </section>
+
+  <!-- Our Expertise / Signature Services Section (Exact Match to Cameron Pictures Reference) -->
+  <section class="expertise-section" id="expertiseSection">
+    <div class="container">
+      <div class="section-title scroll-animate">
+        <span>OUR EXPERTISE</span>
+        <h2>Signature Photography Services</h2>
+        <p>Crafted with creative passion, high-end cinema equipment, and flawless post-production color grading.</p>
+      </div>
+
+      <div class="expertise-cameron-grid">
+        <!-- 1. Candid Wedding Photography -->
+        <div class="expertise-cameron-card scroll-animate" style="animation-delay: 0.1s;">
+          <div class="expertise-cameron-img-wrap feature-card-slider">
+            <img src="assets/images/uploaded-candid-temple.jpg" alt="Candid Wedding Photography" class="card-slide active" loading="lazy">
+            <img src="assets/images/back-candid-temple.jpg" alt="Candid Wedding Photography" class="card-slide" loading="lazy">
+          </div>
+          <div class="expertise-cameron-body">
+            <h3 class="expertise-cameron-title font-serif">Candid Wedding<br>Photography</h3>
+            <p class="expertise-cameron-desc">Unobtrusive, heartfelt candid captures documenting genuine laughter, tears of joy, and priceless family emotions.</p>
+          </div>
+        </div>
+
+        <!-- 2. Cinematic Wedding Video -->
+        <div class="expertise-cameron-card scroll-animate" style="animation-delay: 0.25s;">
+          <div class="expertise-cameron-img-wrap feature-card-slider">
+            <img src="assets/images/uploaded-cinematic-veil.jpg" alt="Cinematic Wedding Video" class="card-slide active" loading="lazy">
+            <img src="assets/images/back-cinematic-gothic.jpg" alt="Cinematic Wedding Video" class="card-slide" loading="lazy">
+          </div>
+          <div class="expertise-cameron-body">
+            <h3 class="expertise-cameron-title font-serif">Cinematic Wedding<br>Video</h3>
+            <p class="expertise-cameron-desc">4K Ultra-HD wedding trailers, music video teasers, and 45-minute feature films with rich colors and cinematic storytelling.</p>
+          </div>
+        </div>
+
+        <!-- 3. Drone Shot -->
+        <div class="expertise-cameron-card scroll-animate" style="animation-delay: 0.4s;">
+          <div class="expertise-cameron-img-wrap feature-card-slider">
+            <img src="assets/images/uploaded-drone-grass.jpg" alt="4K Drone Aerial Shots" class="card-slide active" loading="lazy">
+            <img src="assets/images/back-drone-mandap.jpg" alt="4K Drone Aerial Shots" class="card-slide" loading="lazy">
+          </div>
+          <div class="expertise-cameron-body">
+            <h3 class="expertise-cameron-title font-serif">4K Drone<br>Aerial Shots</h3>
+            <p class="expertise-cameron-desc">Breathtaking high-altitude perspectives capturing majestic venue architecture, outdoor processions, and sunset vistas.</p>
+          </div>
+        </div>
+
+        <!-- 4. Luxury Canvera Photobooks -->
+        <div class="expertise-cameron-card scroll-animate" style="animation-delay: 0.55s;">
+          <div class="expertise-cameron-img-wrap feature-card-slider">
+            <img src="assets/images/photobook-silk-couple.jpg" alt="Luxury Canvera Photobooks" class="card-slide active" loading="lazy">
+            <img src="assets/images/uploaded-fireworks-couple.jpg" alt="Luxury Canvera Photobooks" class="card-slide" loading="lazy">
+          </div>
+          <div class="expertise-cameron-body">
+            <h3 class="expertise-cameron-title font-serif">Luxury Canvera<br>Photobooks</h3>
+            <p class="expertise-cameron-desc">Premium hand-bound Italian leather photobooks with archival velvet paper that preserve memories for generations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Photography Packages Showcase -->
+  <section class="section-padding" id="packagesSection">
+    <div class="container">
+      <div class="section-title">
+        <span>Tailored Plans</span>
+        <h2>Featured Photography Packages</h2>
+        <p>Choose from our hand-crafted photography & videography packages or estimate your custom plan.</p>
+      </div>
+
+      <!-- Packages Grid (Rendered dynamically via JS) -->
+      <div class="packages-grid" id="packagesContainer">
+        <!-- Loaded by assets/js/main.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Testimonials -->
+  <section class="section-padding" style="background: var(--bg-ivory, #fdfbf7);">
+    <div class="container">
+      <div class="section-title scroll-animate">
+        <span>Testimonials</span>
+        <h2>Loved By Couples</h2>
+        <p>Read what our happy brides and grooms say about our photography crew.</p>
+      </div>
+
+      <!-- Client Testimonials Slider Wrapper -->
+      <div class="testimonials-slider-wrapper" id="testimonialsSlider">
+        <div class="testimonials-grid" id="testimonialsTrack">
+          <div class="testimonial-card scroll-animate" style="animation-delay: 0.1s;">
+            <div class="testimonial-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">"The Nuptial Studio crew captured our Coimbatore wedding so beautifully! The candid teaser video made everyone cry happy tears. Highly recommended studio!"</p>
+            <div class="testimonial-author">
+              <h4>Priya & Rahul</h4>
+              <span>Coimbatore, India</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card scroll-animate" style="animation-delay: 0.25s;">
+            <div class="testimonial-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">"Our Ooty pre-wedding video shoot by Nuptial Studio was like a movie song! The drone shots were stunning and the Canvera photo album print quality is top notch."</p>
+            <div class="testimonial-author">
+              <h4>Vikram & Ananya</h4>
+              <span>Chennai, India</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card scroll-animate" style="animation-delay: 0.4s;">
+            <div class="testimonial-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">"The automatic cost estimator tool gave us a crystal clear quotation. Booking on WhatsApp was so simple. Flawless execution on our wedding day!"</p>
+            <div class="testimonial-author">
+              <h4>Kavitha Subramanian</h4>
+              <span>Bengaluru, India</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card scroll-animate" style="animation-delay: 0.55s;">
+            <div class="testimonial-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-quote">"From traditional muhurtham rituals to our grand evening reception, their candid team never missed an emotional moment. Exceptional album layout & fast delivery!"</p>
+            <div class="testimonial-author">
+              <h4>Karthik & Divya</h4>
+              <span>Madurai, India</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Auto-Slider Pagination Dots -->
+        <div class="testimonials-dots" id="testimonialsDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="margin-bottom: 1rem;" aria-label="Nuptial Studio Home">
+            <img src="assets/images/nuptial-logo-gold.png" alt="Nuptial Studio Logo" class="brand-logo-img">
+            <span class="logo-subtext">STUDIO</span>
+          </a>
+          <p>Nuptial Studio — Specializing in candid wedding photography, 4K cinematic films, and pre-wedding concept shoots in Coimbatore.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="tel:+919876543210" class="social-icon" aria-label="Call Nuptial Studio"><i class="fa-solid fa-phone"></i></a>
+            <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Studio</a></li>
+            <li><a href="services.html">Packages & Services</a></li>
+            <li><a href="gallery.html">Portfolio Gallery</a></li>
+            <li><a href="contact.html">Contact & Booking</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-services">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html#pre-post-wedding">Pre-Wedding & Post-Wedding</a></li>
+            <li><a href="services.html#traditional-wedding">Traditional Wedding</a></li>
+            <li><a href="services.html#maternity">Maternity Photoshoot</a></li>
+            <li><a href="services.html#birthday">Birthday Photoshoot</a></li>
+            <li><a href="services.html#puberty">Puberty Function</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Studio</h4>
+          <ul class="footer-contact-info">
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>69, Bharathi Park 8th Cross Rd, Saibaba Colony, Coimbatore, Tamil Nadu 641011</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i>
+              <span>nuptialstudio@gmail.com</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i>
+              <span>+91 98765 43210 / +91 94433 22110</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nuptial Studio. All Rights Reserved.</p>
+        <div class="footer-legal-links">
+          <a href="privacy-policy.html" class="footer-policy-link">Privacy Policy</a>
+          <span class="footer-legal-separator">•</span>
+          <a href="terms-conditions.html" class="footer-policy-link">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp CTA -->
+  <a href="https://wa.me/919876543210?text=Hi%20Nuptial%20Studio!%20I%20want%20to%20check%20photography%20date%20availability." target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Video Modal Popup -->
+  <div class="video-modal-backdrop" id="videoModal">
+    <div class="video-modal-container">
+      <button class="video-modal-close" id="videoModalClose">&times;</button>
+      <iframe id="videoIframe" width="100%" height="100%" src="" title="Wedding Film Teaser" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- Package Details Modal Backdrop -->
+  <div class="modal-backdrop" id="packageModal">
+    <div class="modal-dialog">
+      <button class="modal-close" id="modalCloseBtn" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-header">
+        <span class="text-gold font-heading" style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem;">Package Plan & Deliverables</span>
+        <h2 class="modal-title" id="modalPkgTitle">Package Title</h2>
+        <div id="modalPkgMeta" style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;"></div>
+      </div>
+
+      <div class="modal-body">
+        <h3 class="font-serif" style="font-size: 1.4rem; color: var(--accent-gold);">Coverage Schedule</h3>
+        <div class="itinerary-timeline" id="modalItineraryTimeline">
+          <!-- Populated by JS -->
+        </div>
+
+        <div class="inc-exc-grid">
+          <div class="inc-box">
+            <h4><i class="fa-solid fa-circle-check"></i> Deliverables Included</h4>
+            <ul id="modalInclusions"></ul>
+          </div>
+          <div class="exc-box">
+            <h4><i class="fa-solid fa-circle-xmark"></i> Exclusions / Add-ons</h4>
+            <ul id="modalExclusions"></ul>
+          </div>
+        </div>
+
+        <div style="margin-top: 2.5rem; text-align: center;">
+          <a href="#" class="btn btn-gold" id="modalBookNowBtn">
+            <i class="fa-solid fa-calculator"></i> Proceed to Cost Estimator & Booking
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/packages-data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Video Modal Handler
+    const videoBtn = document.getElementById('heroWatchVideoBtn');
+    const videoModal = document.getElementById('videoModal');
+    const videoClose = document.getElementById('videoModalClose');
+    const videoIframe = document.getElementById('videoIframe');
+
+    if (videoBtn && videoModal) {
+      videoBtn.addEventListener('click', () => {
+        // Sample cinematic wedding film teaser embed
+        videoIframe.src = "https://www.youtube.com/embed/5Peo-ivmupE?autoplay=1";
+        videoModal.classList.add('active');
+      });
+
+      videoClose.addEventListener('click', () => {
+        videoModal.classList.remove('active');
+        videoIframe.src = "";
+      });
+
+      videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) {
+          videoModal.classList.remove('active');
+          videoIframe.src = "";
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

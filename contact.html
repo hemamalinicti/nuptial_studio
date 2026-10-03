@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Nuptial Studio Wedding Photography Coimbatore</title>
+  <meta name="description" content="Get in touch with Nuptial Studio Coimbatore. Inquire about wedding photography, studio visits, date availability, and direct bookings.">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <style>
+    .contact-compact-hero {
+      min-height: 42vh;
+      padding-top: 7.8rem;
+      padding-bottom: 3.8rem;
+      background: linear-gradient(180deg, rgba(35, 12, 20, 0.55) 0%, rgba(20, 7, 12, 0.82) 100%), url('assets/images/plan-royal-heritage-muhurtham.png');
+      background-size: cover;
+      background-position: center 30%;
+      text-align: center;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-info-section {
+      padding: 3.5rem 0 2rem;
+      background: var(--bg-primary);
+    }
+
+    .contact-info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+
+    @media (max-width: 880px) {
+      .contact-info-section {
+        padding: 2rem 0 1.2rem;
+      }
+
+      .contact-info-grid {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+      }
+
+      .contact-compact-card {
+        padding: 1.1rem 1rem;
+        border-radius: 10px;
+      }
+
+      .contact-compact-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.05rem;
+        margin: 0 auto 0.5rem;
+      }
+
+      .contact-compact-card h3 {
+        font-size: 1.05rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .contact-compact-card p {
+        font-size: 0.82rem;
+        line-height: 1.45;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-info-section {
+        padding: 1.4rem 0 0.8rem;
+      }
+
+      .contact-info-grid {
+        gap: 0.65rem;
+      }
+
+      .contact-compact-card {
+        padding: 0.85rem 0.8rem;
+        border-radius: 9px;
+      }
+
+      .contact-compact-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 0.95rem;
+        margin: 0 auto 0.35rem;
+      }
+
+      .contact-compact-card h3 {
+        font-size: 0.98rem;
+        margin-bottom: 0.2rem;
+      }
+
+      .contact-compact-card p {
+        font-size: 0.78rem;
+        line-height: 1.38;
+      }
+    }
+
+    .contact-compact-card {
+      background: #ffffff;
+      border: 1.5px solid var(--accent-pink-border);
+      border-radius: 14px;
+      padding: 2rem 1.6rem;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(123, 17, 58, 0.04);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-compact-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-pink);
+      box-shadow: 0 12px 30px rgba(216, 58, 111, 0.2);
+    }
+
+    .contact-compact-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--bg-pink-pill);
+      border: 1.5px solid var(--accent-pink-border);
+      color: var(--accent-burgundy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.45rem;
+      margin: 0 auto 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 14px rgba(123, 17, 58, 0.1);
+    }
+
+    .contact-compact-card:hover .contact-compact-icon {
+      background: linear-gradient(135deg, #7B113A 0%, #D83A6F 100%);
+      color: #ffffff;
+      transform: scale(1.08);
+      border-color: transparent;
+      box-shadow: 0 6px 20px rgba(216, 58, 111, 0.35);
+    }
+
+    .contact-compact-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: var(--accent-burgundy);
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .contact-compact-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* Customer Details Inquiry Form */
+    .contact-form-section {
+      padding: 3rem 0 5rem;
+      background: var(--bg-primary);
+    }
+
+    .contact-form-layout {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 2.5rem;
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 2.8rem 3rem;
+      box-shadow: var(--shadow-main);
+      align-items: start;
+    }
+
+    @media (max-width: 991px) {
+      .contact-form-layout {
+        grid-template-columns: 1fr;
+        padding: 1.8rem 1.4rem;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .contact-form-section {
+        padding: 1.2rem 0 2.5rem;
+      }
+
+      .contact-form-section .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 10px;
+      }
+
+      .contact-form-layout {
+        padding: 1.1rem 0.85rem;
+        border-radius: 12px;
+        gap: 1.4rem;
+      }
+
+      .contact-form-group {
+        margin-bottom: 0.85rem;
+      }
+
+      .contact-form-group label {
+        font-size: 0.76rem;
+        letter-spacing: 0.8px;
+        margin-bottom: 0.25rem;
+      }
+
+      .contact-form-control {
+        padding: 0.58rem 0.75rem;
+        font-size: 0.88rem;
+        border-radius: 7px;
+      }
+
+      .contact-form-row {
+        gap: 0.85rem;
+      }
+
+      .sidebar-info-card {
+        padding: 1.1rem 0.85rem;
+        border-radius: 10px;
+      }
+
+      .sidebar-info-card h3 {
+        font-size: 1.15rem;
+        margin-bottom: 0.85rem;
+        padding-bottom: 0.45rem;
+      }
+
+      .sidebar-benefit-item {
+        gap: 0.6rem;
+        margin-bottom: 0.85rem;
+      }
+
+      .sidebar-benefit-item h4 {
+        font-size: 0.88rem;
+      }
+
+      .sidebar-benefit-item p {
+        font-size: 0.8rem;
+      }
+
+      .quote-prompt-box {
+        margin-top: 1.1rem;
+        padding: 1rem 0.85rem;
+        border-radius: 10px;
+      }
+
+      .quote-prompt-box h4 {
+        font-size: 1.08rem;
+      }
+
+      .quote-prompt-box p {
+        font-size: 0.82rem;
+        margin-bottom: 0.85rem;
+      }
+
+      .btn-prompt-estimator {
+        padding: 0.75rem 1.1rem;
+        font-size: 0.85rem;
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .contact-form-section .container {
+        padding: 0 6px;
+      }
+
+      .contact-form-layout {
+        padding: 0.95rem 0.65rem;
+      }
+
+      .sidebar-info-card {
+        padding: 0.95rem 0.65rem;
+      }
+
+      .quote-prompt-box {
+        padding: 0.85rem 0.65rem;
+      }
+
+      .contact-form-control {
+        padding: 0.52rem 0.65rem;
+        font-size: 0.84rem;
+      }
+    }
+
+    .contact-form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .contact-form-group label {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-secondary);
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+
+    .contact-form-control {
+      width: 100%;
+      padding: 0.72rem 1rem;
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 0.94rem;
+      transition: all 0.25s ease;
+      box-sizing: border-box;
+    }
+
+    .contact-form-control:focus {
+      outline: none;
+      background: #ffffff;
+      border-color: var(--accent-pink);
+      box-shadow: 0 0 10px rgba(216, 58, 111, 0.25);
+    }
+
+    .contact-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    @media (max-width: 560px) {
+      .contact-form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .sidebar-info-card {
+      background: var(--bg-pink-light);
+      border: 1.5px solid var(--accent-pink-border);
+      border-radius: 14px;
+      padding: 2rem 2rem;
+      box-shadow: 0 8px 24px rgba(123, 17, 58, 0.04);
+    }
+
+    .sidebar-info-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent-burgundy);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1.5px solid var(--accent-pink-border);
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .sidebar-benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .sidebar-benefit-item i {
+      color: var(--accent-pink);
+      font-size: 1.1rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .sidebar-benefit-item h4 {
+      font-family: var(--font-heading);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--accent-burgundy);
+      margin-bottom: 0.2rem;
+    }
+
+    .sidebar-benefit-item p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .quote-prompt-box {
+      margin-top: 1.6rem;
+      padding: 1.5rem 1.4rem;
+      background: linear-gradient(145deg, #ffffff 0%, #fff5f8 100%);
+      border: 1.5px solid var(--accent-pink-border);
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(123, 17, 58, 0.06);
+      transition: all 0.35s ease;
+    }
+
+    .quote-prompt-box:hover {
+      border-color: var(--accent-pink);
+      box-shadow: 0 10px 26px rgba(216, 58, 111, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .quote-prompt-box h4 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--accent-burgundy);
+      margin-bottom: 0.45rem;
+      font-weight: 700;
+    }
+
+    .quote-prompt-box p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.1rem;
+      line-height: 1.5;
+    }
+
+    .btn-prompt-estimator {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      padding: 0.75rem 1.6rem;
+      font-family: var(--font-heading);
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #ffffff !important;
+      background: linear-gradient(135deg, #7B113A 0%, #A21B4B 45%, #D83A6F 100%);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(123, 17, 58, 0.32);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-prompt-estimator:hover {
+      background: linear-gradient(135deg, #9B1849 0%, #D83A6F 55%, #F06292 100%);
+      color: #ffffff !important;
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 24px rgba(216, 58, 111, 0.45);
+    }
+
+    .btn-prompt-estimator:active {
+      transform: translateY(-1px) scale(0.99);
+      box-shadow: 0 4px 12px rgba(216, 58, 111, 0.35);
+    }
+
+    .btn-prompt-estimator i {
+      font-size: 1rem;
+      color: #ffd0dc;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .btn-prompt-estimator:hover i {
+      transform: rotate(-10deg) scale(1.2);
+      color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo" aria-label="Nuptial Studio Home">
+        <img src="assets/images/nuptial-logo-gold.png" alt="Nuptial Studio Logo" class="brand-logo-img">
+        <span class="logo-subtext">STUDIO</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <div class="nav-item-dropdown">
+          <a href="services.html" class="nav-link">Services <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem; margin-left: 3px;"></i></a>
+          <div class="dropdown-menu">
+            <a href="services.html#pre-post-wedding">Pre & Post Wedding</a>
+            <a href="services.html#traditional-wedding">Traditional Wedding</a>
+            <a href="services.html#maternity">Maternity Photoshoot</a>
+            <a href="services.html#birthday">Birthday Photoshoot</a>
+            <a href="services.html#puberty">Puberty Function</a>
+          </div>
+        </div>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="quote.html" class="btn-get-quote">
+          Get A Quote
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Subpage Banner -->
+  <section class="contact-compact-hero">
+    <div class="container">
+      <div style="text-align: center; color: #ffffff;">
+        <span style="color: #FF6599; letter-spacing: 3.5px; text-transform: uppercase; font-size: 0.92rem; font-weight: 700; font-family: var(--font-heading); text-shadow: 0 2px 10px rgba(0,0,0,0.9), 0 0 15px rgba(255,101,153,0.5); display: inline-block;">Get In Touch</span>
+        <h1 class="font-serif" style="color: #ffffff !important; font-size: 2.85rem; margin: 0.5rem 0 0.9rem; text-shadow: 0 2px 16px rgba(0,0,0,0.85); font-weight: 700;">Contact Nuptial Studio</h1>
+        <p style="color: #ffffff; max-width: 680px; margin: 0 auto; font-size: 1.05rem; text-shadow: 0 2px 10px rgba(0,0,0,0.85); font-weight: 400;">We'd love to hear about your special occasion. Reach out for availability, studio consultations, or customized celebration inquiries.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Info Cards -->
+  <section class="contact-info-section">
+    <div class="container">
+      <div class="contact-info-grid">
+        <div class="contact-compact-card">
+          <div class="contact-compact-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <h3>Studio Location</h3>
+          <p><strong>Nuptial Studio</strong><br>69, Bharathi Park 8th Cross Rd, Saibaba Colony, Coimbatore 641011</p>
+          <div style="margin-top: 0.75rem;">
+            <a href="https://www.google.com/maps/place/Nuptial+studio/@11.0248905,76.9383017,17z" target="_blank" style="color: var(--accent-gold); font-size: 0.84rem; font-weight: 600;">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Google Maps
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-compact-card">
+          <div class="contact-compact-icon"><i class="fa-solid fa-envelope"></i></div>
+          <h3>Email Studio</h3>
+          <p><strong>nuptialstudio@gmail.com</strong><br>Direct Studio Bookings & Inquiries<br>Prompt reply within 2 hours</p>
+        </div>
+
+        <div class="contact-compact-card">
+          <div class="contact-compact-icon"><i class="fa-solid fa-phone"></i></div>
+          <h3>Call / WhatsApp</h3>
+          <p><strong>+91 98765 43210</strong><br>Mon - Sat: 9:00 AM - 8:00 PM<br>24/7 Dedicated WhatsApp Support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Inquiry Form Section -->
+  <section class="contact-form-section" id="inquirySection">
+    <div class="container">
+      <div class="section-title" style="margin-bottom: 2.4rem;">
+        <span style="font-size: 0.84rem; letter-spacing: 2.5px;">Direct Inquiry</span>
+        <h2 style="font-size: 2.2rem; margin: 0.3rem 0 0.6rem;">Send Us Your Details</h2>
+        <p style="font-size: 0.98rem; margin: 0;">Fill in your celebration details below and our team will get back to you with availability and details.</p>
+      </div>
+
+      <div class="contact-form-layout">
+        <!-- Left Column: Customer Form -->
+        <div>
+          <form id="customerContactForm">
+            <div class="contact-form-group">
+              <label for="cName">Your Full Name *</label>
+              <input type="text" id="cName" class="contact-form-control" placeholder="e.g. Priya & Rahul" required>
+            </div>
+
+            <div class="contact-form-row">
+              <div class="contact-form-group">
+                <label for="cPhone">Phone / WhatsApp Number *</label>
+                <input type="tel" id="cPhone" class="contact-form-control" placeholder="10-digit mobile number" required>
+              </div>
+
+              <div class="contact-form-group">
+                <label for="cEmail">Email Address *</label>
+                <input type="email" id="cEmail" class="contact-form-control" placeholder="name@example.com" required>
+              </div>
+            </div>
+
+            <div class="contact-form-row">
+              <div class="contact-form-group">
+                <label for="cService">Photography Service Interested In *</label>
+                <select id="cService" class="contact-form-control" required>
+                  <option value="" disabled selected>-- Select Service --</option>
+                  <option value="Pre & Post Wedding Shoots">Pre & Post Wedding Shoots</option>
+                  <option value="Traditional Wedding Photography">Traditional Wedding Photography</option>
+                  <option value="Maternity Photoshoot">Maternity Photoshoot</option>
+                  <option value="Birthday Photoshoot">Birthday Photoshoot</option>
+                  <option value="Puberty Function (Manjal Neerattu)">Puberty Function (Manjal Neerattu)</option>
+                  <option value="Custom Outstation Event">Custom Outstation Event</option>
+                </select>
+              </div>
+
+              <div class="contact-form-group">
+                <label for="cDate">Expected Event Date</label>
+                <input type="date" id="cDate" class="contact-form-control">
+              </div>
+            </div>
+
+            <div class="contact-form-group">
+              <label for="cLocation">Event Location / City</label>
+              <input type="text" id="cLocation" class="contact-form-control" placeholder="e.g. Coimbatore, Ooty, Chennai, Bangalore">
+            </div>
+
+            <div class="contact-form-group">
+              <label for="cMessage">Message / Function Details *</label>
+              <textarea id="cMessage" class="contact-form-control" rows="4" placeholder="Tell us about your event schedule, venue, required coverage hours, or any specific visual styling preferences..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-gold" style="width: 100%; padding: 0.85rem 1.4rem; font-size: 0.96rem; font-weight: 700; margin-top: 0.5rem;">
+              <i class="fa-brands fa-whatsapp"></i> Send Inquiry via WhatsApp
+            </button>
+          </form>
+        </div>
+
+        <!-- Right Column: Studio Benefits & Quote Link -->
+        <div>
+          <div class="sidebar-info-card">
+            <h3><i class="fa-solid fa-camera-retro"></i> Why Choose Us</h3>
+
+            <div class="sidebar-benefit-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <div>
+                <h4>Senior Creative Crew</h4>
+                <p>Equipped with Sony FX3 & A7IV full-frame cinema cameras, Prime G-Master lenses, and DJI 4K aerial drones.</p>
+              </div>
+            </div>
+
+            <div class="sidebar-benefit-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <div>
+                <h4>Handcrafted Canvera Photobooks</h4>
+                <p>Archival quality velvet and Italian leather binding that preserves your memories for generations.</p>
+              </div>
+            </div>
+
+            <div class="sidebar-benefit-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <div>
+                <h4>Fast On-Time Delivery</h4>
+                <p>Same-day 1-min social media teasers and 100% on-time full-feature 4K cinematic film delivery.</p>
+              </div>
+            </div>
+
+            <div class="quote-prompt-box">
+              <h4>Need Instant Package Pricing?</h4>
+              <p>Calculate your custom duration, crew size, and cinema add-ons in real time with our live tool.</p>
+              <a href="quote.html" class="btn-prompt-estimator">
+                <i class="fa-solid fa-calculator"></i> Open Price Estimator
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location Map Card -->
+  <section class="section-padding" style="padding: 2.5rem 0 4rem;">
+    <div class="container">
+      <div class="section-title" style="margin-bottom: 1.5rem;">
+        <span style="font-size: 0.84rem; letter-spacing: 2px;">Find Studio</span>
+        <h2 style="font-size: 2.2rem; margin: 0.3rem 0 0.5rem;">Nuptial Studio Google Maps Location</h2>
+        <p style="font-size: 0.95rem; margin: 0;">Visit our studio in Coimbatore or get directions below.</p>
+      </div>
+
+      <div style="border: 1px solid var(--border-color); border-radius: var(--radius-lg); overflow: hidden; height: 340px; box-shadow: var(--shadow-main); position: relative;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.1868352602735!2d76.93572677573887!3d11.024890589139366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8596073c05df7%3A0xd1dde4099d40d4e7!2sNuptial%20studio!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <div style="text-align: center; margin-top: 1.4rem;">
+        <a href="https://www.google.com/maps/place/Nuptial+studio/@11.0249018,76.9384483,3a,75y,90t/data=!3m7!1e2!3m5!1sCIABIhAvxsTl6s7DMHAdBC-DQnep!2e10!3e12!7i1280!8i960!4m7!3m6!1s0x3ba8596073c05df7:0xd1dde4099d40d4e7!8m2!3d11.0248905!4d76.9383017!10e5!16s%2Fg%2F11nr1j_mzh" target="_blank" class="btn btn-gold" style="padding: 0.6rem 1.5rem; font-size: 0.88rem;">
+          <i class="fa-solid fa-map-location-dot"></i> Open Nuptial Studio on Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="margin-bottom: 1rem;" aria-label="Nuptial Studio Home">
+            <img src="assets/images/nuptial-logo-gold.png" alt="Nuptial Studio Logo" class="brand-logo-img">
+            <span class="logo-subtext">STUDIO</span>
+          </a>
+          <p>Nuptial Studio — Specializing in candid wedding photography, 4K cinematic films, and pre-wedding concept shoots in Coimbatore.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="tel:+919876543210" class="social-icon" aria-label="Call Nuptial Studio"><i class="fa-solid fa-phone"></i></a>
+            <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Studio</a></li>
+            <li><a href="services.html">Packages & Services</a></li>
+            <li><a href="gallery.html">Portfolio Gallery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="quote.html">Get A Quote</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-services">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html#pre-post-wedding">Pre-Wedding & Post-Wedding</a></li>
+            <li><a href="services.html#traditional-wedding">Traditional Wedding</a></li>
+            <li><a href="services.html#maternity">Maternity Photoshoot</a></li>
+            <li><a href="services.html#birthday">Birthday Photoshoot</a></li>
+            <li><a href="services.html#puberty">Puberty Function</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Studio</h4>
+          <ul class="footer-contact-info">
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>69, Bharathi Park 8th Cross Rd, Saibaba Colony, Coimbatore, Tamil Nadu 641011</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i>
+              <span>nuptialstudio@gmail.com</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i>
+              <span>+91 98765 43210 / +91 94433 22110</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nuptial Studio. All Rights Reserved.</p>
+        <div class="footer-legal-links">
+          <a href="privacy-policy.html" class="footer-policy-link">Privacy Policy</a>
+          <span class="footer-legal-separator">•</span>
+          <a href="terms-conditions.html" class="footer-policy-link">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp CTA -->
+  <a href="https://wa.me/919876543210?text=Hi%20Nuptial%20Studio!%20I%20have%20a%20photography%20booking%20query." target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Direct Customer Inquiry WhatsApp submission handler
+    const contactForm = document.getElementById('customerContactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name = document.getElementById('cName').value.trim();
+        const phone = document.getElementById('cPhone').value.trim();
+        const email = document.getElementById('cEmail').value.trim();
+        const service = document.getElementById('cService').value;
+        const date = document.getElementById('cDate').value;
+        const location = document.getElementById('cLocation').value.trim();
+        const message = document.getElementById('cMessage').value.trim();
+
+        if (!name || !phone || !email || !service || !message) {
+          alert('Please fill in all required fields.');
+          return;
+        }
+
+        let formattedMsg = `*New Photography Inquiry - Nuptial Studio*\n\n` +
+          `*Name:* ${name}\n` +
+          `*Phone:* ${phone}\n` +
+          `*Email:* ${email}\n` +
+          `*Service:* ${service}\n` +
+          `*Event Date:* ${date || 'To be decided'}\n` +
+          `*Location:* ${location || 'Coimbatore'}\n\n` +
+          `*Message:* ${message}`;
+
+        const waUrl = `https://wa.me/919876543210?text=${encodeURIComponent(formattedMsg)}`;
+        window.open(waUrl, '_blank');
+      });
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get A Quote | Instant Photography Package Estimator - Nuptial Studio</title>
+  <meta name="description" content="Calculate real-time wedding photography & cinematography costs, customize crew size & add-ons, and reserve your date on WhatsApp with Nuptial Studio Coimbatore.">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <style>
+    .quote-hero-banner {
+      min-height: 44vh;
+      padding-top: 7.8rem;
+      padding-bottom: 3.8rem;
+      background: linear-gradient(180deg, rgba(35, 17, 24, 0.55) 0%, rgba(35, 17, 24, 0.82) 100%), url('assets/images/quote-south-indian-wedding-banner.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      text-align: center;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .estimator-page-section {
+      padding: 3.5rem 0 5rem;
+      background: var(--bg-primary);
+    }
+
+    .estimator-box-layout {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 2.5rem 2.8rem;
+      box-shadow: var(--shadow-main);
+    }
+
+    @media (max-width: 991px) {
+      .estimator-box-layout {
+        padding: 1.6rem 1.4rem;
+      }
+    }
+
+    .estimator-two-col-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2.4rem;
+    }
+
+    @media (max-width: 920px) {
+      .estimator-two-col-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .estimator-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-step-heading {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--accent-burgundy);
+      margin: 0 0 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1.5px solid var(--accent-pink-border);
+    }
+
+    .compact-form-group {
+      margin-bottom: 1.15rem;
+    }
+
+    .compact-form-group label {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-secondary);
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+
+    .compact-form-control {
+      width: 100%;
+      padding: 0.68rem 0.95rem;
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      transition: all 0.25s ease;
+    }
+
+    .compact-form-control:focus {
+      outline: none;
+      background: #ffffff;
+      border-color: var(--accent-pink);
+      box-shadow: 0 0 10px rgba(216, 58, 111, 0.25);
+    }
+
+    .compact-form-control.is-invalid {
+      border-color: #ef4444;
+      background: #fef2f2;
+    }
+
+    .invalid-feedback {
+      color: #ef4444;
+      font-size: 0.76rem;
+      margin-top: 0.3rem;
+      display: none;
+    }
+
+    .compact-form-control.is-invalid + .invalid-feedback {
+      display: block;
+    }
+
+    .compact-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 540px) {
+      .compact-form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Add-on Grid */
+    .addon-compact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 0.4rem;
+    }
+
+    @media (max-width: 540px) {
+      .addon-compact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .addon-compact-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      background: var(--bg-pink-light);
+      border: 1px solid var(--accent-pink-border);
+      border-radius: 8px;
+      padding: 0.6rem 0.8rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      margin: 0;
+    }
+
+    .addon-compact-pill:hover {
+      border-color: var(--accent-pink);
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(216, 58, 111, 0.15);
+    }
+
+    .addon-compact-pill input[type="checkbox"] {
+      accent-color: var(--accent-burgundy);
+      width: 17px;
+      height: 17px;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    .addon-compact-info {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.3;
+    }
+
+    .addon-compact-name {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .addon-compact-price {
+      font-size: 0.76rem;
+      color: var(--accent-burgundy);
+      font-weight: 700;
+    }
+
+    /* Price Summary Bottom Panel */
+    .estimator-bottom-panel {
+      border-top: 2px dashed var(--accent-pink-border);
+      padding-top: 2.2rem;
+    }
+
+    .cost-summary-card {
+      background: var(--bg-pink-light);
+      border: 1.5px solid var(--accent-pink-border);
+      border-radius: 14px;
+      padding: 2rem 2.2rem;
+      box-shadow: 0 8px 24px rgba(123, 17, 58, 0.06);
+    }
+
+    .summary-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1.5px solid var(--accent-pink-border);
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .summary-header h3 {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--accent-burgundy);
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .summary-subtitle {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    .summary-items-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.1rem 1.6rem;
+      align-items: stretch;
+      margin-bottom: 1.6rem;
+    }
+
+    @media (max-width: 991px) {
+      .summary-items-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.9rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .estimator-page-section {
+        padding: 1.5rem 0 2.5rem;
+      }
+
+      .estimator-page-section .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 10px;
+      }
+
+      .estimator-box-layout {
+        padding: 1.25rem 0.9rem;
+        border-radius: 12px;
+      }
+
+      .estimator-two-col-grid {
+        gap: 1.6rem;
+        margin-bottom: 1.6rem;
+      }
+
+      .cost-summary-card {
+        padding: 1.1rem 0.8rem;
+        border-radius: 12px;
+      }
+
+      .summary-header {
+        margin-bottom: 1rem;
+        padding-bottom: 0.6rem;
+      }
+
+      .summary-header h3 {
+        font-size: 1.18rem;
+      }
+
+      .summary-subtitle {
+        font-size: 0.8rem;
+      }
+
+      .summary-items-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.65rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .summary-line-item {
+        padding: 0.7rem 0.65rem;
+        border-radius: 8px;
+        gap: 0.2rem;
+      }
+
+      .summary-line-item span:first-child {
+        font-size: 0.72rem;
+        line-height: 1.25;
+      }
+
+      .summary-line-item strong, .summary-line-item span:last-child {
+        font-size: 0.94rem;
+        line-height: 1.25;
+      }
+
+      .summary-line-total {
+        grid-column: 1 / -1;
+        padding: 0.8rem 1rem;
+        border-radius: 8px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .summary-line-total span {
+        font-size: 0.82rem;
+      }
+
+      .summary-line-total strong {
+        font-size: 1.45rem;
+      }
+
+      .estimator-bottom-actions {
+        gap: 1rem;
+        padding-top: 1rem;
+      }
+
+      .estimator-guarantee-badge {
+        padding: 0.7rem 0.85rem;
+        font-size: 0.8rem;
+      }
+
+      .btn-whatsapp-submit {
+        padding: 0.82rem 1.2rem;
+        font-size: 0.9rem;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .estimator-page-section .container {
+        padding: 0 6px;
+      }
+
+      .estimator-box-layout {
+        padding: 1rem 0.6rem;
+      }
+
+      .cost-summary-card {
+        padding: 0.9rem 0.55rem;
+      }
+
+      .summary-items-grid {
+        gap: 0.45rem;
+      }
+
+      .summary-line-item {
+        padding: 0.55rem 0.5rem;
+      }
+
+      .summary-line-item span:first-child {
+        font-size: 0.68rem;
+      }
+
+      .summary-line-item strong, .summary-line-item span:last-child {
+        font-size: 0.88rem;
+      }
+    }
+
+    .summary-line-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.35rem;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      background: #ffffff;
+      padding: 0.9rem 1.15rem;
+      border-radius: 10px;
+      border: 1px solid var(--accent-pink-border);
+    }
+
+    .summary-line-item strong, .summary-line-item span:last-child {
+      color: var(--accent-burgundy);
+      font-weight: 700;
+      font-size: 1.02rem;
+    }
+
+    .summary-line-total {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.25rem;
+      background: linear-gradient(135deg, #7B113A 0%, #9B1849 100%);
+      padding: 0.9rem 1.25rem;
+      border-radius: 10px;
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(123, 17, 58, 0.25);
+    }
+
+    .summary-line-total span {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.75px;
+      color: #ffd0dc;
+    }
+
+    .summary-line-total strong {
+      font-size: 1.75rem;
+      color: #ffffff;
+      font-family: var(--font-heading);
+      line-height: 1.1;
+    }
+
+    .estimator-bottom-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.8rem;
+      align-items: center;
+      padding-top: 1.4rem;
+      border-top: 1.5px solid var(--accent-pink-border);
+    }
+
+    @media (max-width: 860px) {
+      .estimator-bottom-actions {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .estimator-guarantee-badge {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      background: #ffffff;
+      padding: 0.85rem 1.1rem;
+      border-radius: 8px;
+      border: 1px solid var(--accent-pink-border);
+    }
+
+    .btn-whatsapp-submit {
+      padding: 0.95rem 2.2rem;
+      font-size: 1.02rem;
+      font-weight: 700;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo" aria-label="Nuptial Studio Home">
+        <img src="assets/images/nuptial-logo-gold.png" alt="Nuptial Studio Logo" class="brand-logo-img">
+        <span class="logo-subtext">STUDIO</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <div class="nav-item-dropdown">
+          <a href="services.html" class="nav-link">Services <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem; margin-left: 3px;"></i></a>
+          <div class="dropdown-menu">
+            <a href="services.html#pre-post-wedding">Pre & Post Wedding</a>
+            <a href="services.html#traditional-wedding">Traditional Wedding</a>
+            <a href="services.html#maternity">Maternity Photoshoot</a>
+            <a href="services.html#birthday">Birthday Photoshoot</a>
+            <a href="services.html#puberty">Puberty Function</a>
+          </div>
+        </div>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="quote.html" class="btn-get-quote" style="background: var(--accent-gold); color: #ffffff;">
+          Get A Quote
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="quote-hero-banner">
+    <div class="container">
+      <span style="color: #FF6599; letter-spacing: 3.5px; text-transform: uppercase; font-size: 0.92rem; font-weight: 700; font-family: var(--font-heading); text-shadow: 0 2px 10px rgba(0,0,0,0.9), 0 0 15px rgba(255,101,153,0.5); display: inline-block;">Transparent Studio Pricing</span>
+      <h1 class="font-serif" style="color: #ffffff !important; font-size: 2.85rem; margin: 0.5rem 0 0.9rem; text-shadow: 0 2px 16px rgba(0,0,0,0.85); font-weight: 700;">Instant Photography Cost Estimator</h1>
+      <p style="color: #ffffff; max-width: 700px; margin: 0 auto; font-size: 1.05rem; text-shadow: 0 2px 10px rgba(0,0,0,0.85); font-weight: 400;">Configure your wedding or celebration package details below to calculate real-time pricing and reserve your date on WhatsApp.</p>
+    </div>
+  </section>
+
+  <!-- Automatic Cost Estimator Section -->
+  <section class="estimator-page-section" id="estimatorSection">
+    <div class="container">
+      <div class="section-title" style="margin-bottom: 2.4rem;">
+        <span style="font-size: 0.84rem; letter-spacing: 2.5px;">Live Price Calculator</span>
+        <h2 style="font-size: 2.2rem; margin: 0.3rem 0 0.6rem;">Customize Your Photography Package</h2>
+        <p style="font-size: 0.98rem; margin: 0;">Adjust duration days, photography crew size, and optional add-on cinema features to see instant pricing.</p>
+      </div>
+
+      <div class="estimator-box-layout">
+        <form id="costEstimatorForm" novalidate>
+          <div class="estimator-two-col-grid">
+            <!-- Left Column: 1. Event & Photography Package Setup -->
+            <div class="estimator-col">
+              <h3 class="form-step-heading">
+                <i class="fa-solid fa-sliders"></i> 1. Event & Photography Package Setup
+              </h3>
+
+              <div class="compact-form-group">
+                <label for="estPackageSelect">Choose Photography Package *</label>
+                <select id="estPackageSelect" class="compact-form-control" required>
+                  <!-- Populated dynamically via JS -->
+                </select>
+              </div>
+
+              <div class="compact-form-row">
+                <div class="compact-form-group">
+                  <label for="estTravelDate">Event Date *</label>
+                  <input type="date" id="estTravelDate" class="compact-form-control" required>
+                </div>
+
+                <div class="compact-form-group">
+                  <label for="estDuration">Event Duration (Days)</label>
+                  <input type="number" id="estDuration" class="compact-form-control" value="1" min="1" max="5">
+                </div>
+              </div>
+
+              <div class="compact-form-group">
+                <label for="estCrew">Crew & Photographer Team Size</label>
+                <select id="estCrew" class="compact-form-control">
+                  <option value="1.0" selected>Standard Crew (1 Candid + 1 Traditional)</option>
+                  <option value="1.35">Senior 4-Member Team (2 Candid + 2 Cinematographers)</option>
+                  <option value="1.70">Royal 6-Member Crew (Candid, Cinematic, Drone & 2 Traditional)</option>
+                </select>
+              </div>
+
+              <div class="compact-form-group">
+                <label>Optional Add-on Services</label>
+                <div class="addon-compact-grid">
+                  <label class="addon-compact-pill">
+                    <input type="checkbox" id="addonDrone">
+                    <div class="addon-compact-info">
+                      <span class="addon-compact-name">4K Drone Aerial</span>
+                      <span class="addon-compact-price">+₹12,000 / day</span>
+                    </div>
+                  </label>
+
+                  <label class="addon-compact-pill">
+                    <input type="checkbox" id="addonReel">
+                    <div class="addon-compact-info">
+                      <span class="addon-compact-name">Same-Day 1-Min Reel</span>
+                      <span class="addon-compact-price">+₹8,000</span>
+                    </div>
+                  </label>
+
+                  <label class="addon-compact-pill">
+                    <input type="checkbox" id="addonAlbum">
+                    <div class="addon-compact-info">
+                      <span class="addon-compact-name">Extra Canvera Album</span>
+                      <span class="addon-compact-price">+₹10,000</span>
+                    </div>
+                  </label>
+
+                  <label class="addon-compact-pill">
+                    <input type="checkbox" id="addonMusicVideo">
+                    <div class="addon-compact-info">
+                      <span class="addon-compact-name">Pre-Wedding Music Video</span>
+                      <span class="addon-compact-price">+₹15,000</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: 2. Client Contact Information -->
+            <div class="estimator-col">
+              <h3 class="form-step-heading">
+                <i class="fa-solid fa-user-check"></i> 2. Client Contact Information
+              </h3>
+
+              <div class="compact-form-group">
+                <label for="custName">Full Name *</label>
+                <input type="text" id="custName" class="compact-form-control" placeholder="e.g. Priya & Rahul" required>
+              </div>
+
+              <div class="compact-form-row">
+                <div class="compact-form-group">
+                  <label for="custPhone">Phone / WhatsApp Number *</label>
+                  <input type="tel" id="custPhone" class="compact-form-control" placeholder="10-digit mobile number" required>
+                </div>
+
+                <div class="compact-form-group">
+                  <label for="custEmail">Email Address *</label>
+                  <input type="email" id="custEmail" class="compact-form-control" placeholder="name@example.com" required>
+                </div>
+              </div>
+
+              <div class="compact-form-group">
+                <label for="custNotes">Special Function / Venue Requirements (Optional)</label>
+                <textarea id="custNotes" class="compact-form-control" rows="4" placeholder="Mention venue location, sangeet time, traditional rituals, etc."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Section: Live Dynamic Cost Summary Panel & Submit -->
+          <div class="estimator-bottom-panel">
+            <div class="cost-summary-card">
+              <div class="summary-header">
+                <h3><i class="fa-solid fa-receipt"></i> Dynamic Price Breakdown</h3>
+                <span class="summary-subtitle">Live real-time estimation based on your selections</span>
+              </div>
+
+              <div class="summary-items-grid">
+                <div class="summary-line-item">
+                  <span>Selected Package</span>
+                  <strong id="dispPackageName">No package selected</strong>
+                </div>
+
+                <div class="summary-line-item">
+                  <span>Base Package Rate</span>
+                  <span id="dispBaseRate">₹0</span>
+                </div>
+
+                <div class="summary-line-item">
+                  <span>Crew Setup & Duration</span>
+                  <span id="dispCrewTier">Standard</span>
+                </div>
+
+                <div class="summary-line-item">
+                  <span>Selected Add-ons</span>
+                  <span id="dispAddonsTotal">₹0</span>
+                </div>
+
+                <div class="summary-line-item">
+                  <span>Government GST (18%)</span>
+                  <span id="dispGst">₹0</span>
+                </div>
+
+                <div class="summary-line-total">
+                  <span>Estimated Total</span>
+                  <strong id="dispTotalPrice">₹0</strong>
+                </div>
+              </div>
+
+              <div class="estimator-bottom-actions">
+                <div class="estimator-guarantee-badge">
+                  <i class="fa-solid fa-shield-halved text-emerald"></i> <strong>Includes:</strong> Color grading, all raw 4K footage on cloud drive, edited teasers, handcrafted Canvera photobook albums, and instant date lock confirmation.
+                </div>
+
+                <button type="submit" class="btn btn-gold btn-whatsapp-submit">
+                  <i class="fa-brands fa-whatsapp"></i> Reserve Date & Submit via WhatsApp
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="margin-bottom: 1rem;" aria-label="Nuptial Studio Home">
+            <img src="assets/images/nuptial-logo-gold.png" alt="Nuptial Studio Logo" class="brand-logo-img">
+            <span class="logo-subtext">STUDIO</span>
+          </a>
+          <p>Nuptial Studio — Specializing in candid wedding photography, 4K cinematic films, and pre-wedding concept shoots in Coimbatore.</p>
+          <div class="social-links">
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="tel:+919876543210" class="social-icon" aria-label="Call Nuptial Studio"><i class="fa-solid fa-phone"></i></a>
+            <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Studio</a></li>
+            <li><a href="services.html">Packages & Services</a></li>
+            <li><a href="gallery.html">Portfolio Gallery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="quote.html">Get A Quote</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-services">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html#pre-post-wedding">Pre-Wedding & Post-Wedding</a></li>
+            <li><a href="services.html#traditional-wedding">Traditional Wedding</a></li>
+            <li><a href="services.html#maternity">Maternity Photoshoot</a></li>
+            <li><a href="services.html#birthday">Birthday Photoshoot</a></li>
+            <li><a href="services.html#puberty">Puberty Function</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Studio</h4>
+          <ul class="footer-contact-info">
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>69, Bharathi Park 8th Cross Rd, Saibaba Colony, Coimbatore, Tamil Nadu 641011</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i>
+              <span>nuptialstudio@gmail.com</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i>
+              <span>+91 98765 43210 / +91 94433 22110</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nuptial Studio. All Rights Reserved.</p>
+        <div class="footer-legal-links">
+          <a href="privacy-policy.html" class="footer-policy-link">Privacy Policy</a>
+          <span class="footer-legal-separator">•</span>
+          <a href="terms-conditions.html" class="footer-policy-link">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp CTA -->
+  <a href="https://wa.me/919876543210?text=Hi%20Nuptial%20Studio!%20I%20want%20to%20get%20a%20photography%20package%20quote." target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="assets/js/packages-data.js"></script>
+  <script src="assets/js/cost-estimator.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
