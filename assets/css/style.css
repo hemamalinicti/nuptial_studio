@@ -749,49 +749,6 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.2);
 }
 
-/* Video Modal */
-.video-modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.92);
-  z-index: 3000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: var(--transition);
-}
-
-.video-modal-backdrop.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.video-modal-container {
-  width: 90%;
-  max-width: 900px;
-  position: relative;
-  aspect-ratio: 16/9;
-  background: #000;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-}
-
-.video-modal-close {
-  position: absolute;
-  top: -40px;
-  right: 0;
-  color: #ffffff;
-  font-size: 2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
 
 /* ==========================================================================
    Our Expertise / Signature Services 4-Card Section
@@ -862,7 +819,7 @@ h1, h2, h3, h4, h5, h6 {
   object-fit: cover;
   object-position: center 20%;
   opacity: 0;
-  transition: opacity 1.2s ease-in-out, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.7s ease-in-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .expertise-cameron-img-wrap .card-slide.active {
@@ -999,9 +956,8 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 0.7s ease-in-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ==========================================================================
@@ -1704,16 +1660,99 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.85rem;
 }
 
-#lightboxVideo {
-  display: none;
-  max-height: 80vh;
-  width: auto;
+.lightbox-modal-content {
+  max-width: 920px;
+  width: 92%;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+}
+
+.lightbox-media-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
+}
+
+#lightboxImg {
+  max-height: 75vh;
   max-width: 100%;
+  width: auto;
   border-radius: var(--radius-md);
   border: 2px solid var(--border-color);
   margin: 0 auto;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  transition: opacity 0.35s ease;
+}
+
+#lightboxVideo {
+  display: none;
+  max-height: 75vh;
+  max-width: 100%;
+  width: auto;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border-color);
+  margin: 0 auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
   background: #000000;
+}
+
+.lightbox-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(35, 12, 20, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.lightbox-nav-btn:hover {
+  background: linear-gradient(135deg, #7B113A 0%, #D83A6F 100%);
+  border-color: transparent;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-prev {
+  left: -24px;
+}
+
+.lightbox-next {
+  right: -24px;
+}
+
+@media (max-width: 768px) {
+  .lightbox-prev {
+    left: 4px;
+  }
+  .lightbox-next {
+    right: 4px;
+  }
+}
+
+#lightboxCaption {
+  color: var(--accent-gold);
+  margin-top: 1rem;
+  font-size: 1.25rem;
+}
+
+.lightbox-counter {
+  color: #e5d5c5;
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+  letter-spacing: 1px;
 }
 
 /* Stats Counter Section */

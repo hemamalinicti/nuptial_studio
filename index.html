@@ -72,9 +72,9 @@
 
       <div class="hero-cameron-actions">
         <a href="gallery.html" class="btn-view-project">View Project</a>
-        <button class="btn-watch-video" id="heroWatchVideoBtn">
-          <i class="fa-solid fa-play"></i> Watch Video
-        </button>
+        <a href="gallery.html" class="btn-watch-video">
+          <i class="fa-solid fa-play"></i> Watch Work
+        </a>
       </div>
     </div>
 
@@ -327,13 +327,6 @@
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
-  <!-- Video Modal Popup -->
-  <div class="video-modal-backdrop" id="videoModal">
-    <div class="video-modal-container">
-      <button class="video-modal-close" id="videoModalClose">&times;</button>
-      <iframe id="videoIframe" width="100%" height="100%" src="" title="Wedding Film Teaser" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-  </div>
 
   <!-- Package Details Modal Backdrop -->
   <div class="modal-backdrop" id="packageModal">
@@ -377,33 +370,6 @@
   <!-- Scripts -->
   <script src="assets/js/packages-data.js"></script>
   <script src="assets/js/main.js"></script>
-  <script>
-    // Video Modal Handler
-    const videoBtn = document.getElementById('heroWatchVideoBtn');
-    const videoModal = document.getElementById('videoModal');
-    const videoClose = document.getElementById('videoModalClose');
-    const videoIframe = document.getElementById('videoIframe');
-
-    if (videoBtn && videoModal) {
-      videoBtn.addEventListener('click', () => {
-        // Sample cinematic wedding film teaser embed
-        videoIframe.src = "https://www.youtube.com/embed/5Peo-ivmupE?autoplay=1";
-        videoModal.classList.add('active');
-      });
-
-      videoClose.addEventListener('click', () => {
-        videoModal.classList.remove('active');
-        videoIframe.src = "";
-      });
-
-      videoModal.addEventListener('click', (e) => {
-        if (e.target === videoModal) {
-          videoModal.classList.remove('active');
-          videoIframe.src = "";
-        }
-      });
-    }
-  </script>
 </body>
 
 </html>

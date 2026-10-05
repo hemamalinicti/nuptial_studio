@@ -199,41 +199,87 @@ document.addEventListener('DOMContentLoaded', function () {
     modal.classList.remove('active');
   }
 
-  // 5. Portfolio Lightbox Viewer
+  // 5. Portfolio Lightbox Viewer with Auto-Advancing Slideshow
   const galleryItems = document.querySelectorAll('.gallery-item');
   const lightboxModal = document.getElementById('lightboxModal');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxVideo = document.getElementById('lightboxVideo');
   const lightboxCap = document.getElementById('lightboxCaption');
+  const lightboxCounter = document.getElementById('lightboxCounter');
   const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
 
   if (galleryItems.length > 0 && lightboxModal) {
-    galleryItems.forEach(item => {
-      item.addEventListener('click', function () {
-        const media = this.querySelector('video, img');
-        const title = this.querySelector('h4')?.textContent || '';
-        const location = this.querySelector('p')?.textContent || '';
-        const isVideo = this.querySelector('video') !== null;
+    let currentGalleryIdx = 0;
+    let lightboxSlideTimer = null;
+    const autoAdvanceDelay = 3200; // 3.2 seconds auto-advance
 
-        if (isVideo && media && lightboxVideo) {
-          lightboxImg.style.display = 'none';
-          lightboxVideo.style.display = 'block';
-          lightboxVideo.src = media.currentSrc || media.src;
-          lightboxVideo.currentTime = 0;
-          lightboxVideo.play().catch(() => {});
-        } else if (media) {
-          lightboxVideo?.pause();
-          lightboxVideo && (lightboxVideo.style.display = 'none');
+    function showGalleryItem(index) {
+      if (index < 0) {
+        currentGalleryIdx = galleryItems.length - 1;
+      } else if (index >= galleryItems.length) {
+        currentGalleryIdx = 0;
+      } else {
+        currentGalleryIdx = index;
+      }
+
+      const item = galleryItems[currentGalleryIdx];
+      const media = item.querySelector('video, img');
+      const title = item.querySelector('h4')?.textContent || '';
+      const location = item.querySelector('p')?.textContent || '';
+      const isVideo = item.querySelector('video') !== null;
+
+      stopLightboxTimer();
+
+      if (isVideo && media && lightboxVideo) {
+        if (lightboxImg) lightboxImg.style.display = 'none';
+        lightboxVideo.style.display = 'block';
+        lightboxVideo.src = media.currentSrc || media.src;
+        lightboxVideo.currentTime = 0;
+        lightboxVideo.play().catch(() => {});
+
+        // Advance to next image automatically when video completes
+        lightboxVideo.onended = () => {
+          showGalleryItem(currentGalleryIdx + 1);
+        };
+      } else if (media) {
+        lightboxVideo?.pause();
+        if (lightboxVideo) {
+          lightboxVideo.style.display = 'none';
+          lightboxVideo.removeAttribute('src');
+        }
+        if (lightboxImg) {
           lightboxImg.style.display = 'block';
           lightboxImg.src = media.currentSrc || media.src;
         }
 
-        lightboxCap.textContent = `${title} - ${location}`;
-        lightboxModal.classList.add('active');
-      });
-    });
+        // Automatically move to the next item one after another
+        startLightboxTimer();
+      }
 
-    lightboxClose?.addEventListener('click', () => {
+      if (lightboxCap) lightboxCap.textContent = `${title} ${location ? '— ' + location : ''}`;
+      if (lightboxCounter) lightboxCounter.textContent = `${currentGalleryIdx + 1} / ${galleryItems.length}`;
+    }
+
+    function startLightboxTimer() {
+      stopLightboxTimer();
+      lightboxSlideTimer = setTimeout(() => {
+        if (lightboxModal.classList.contains('active')) {
+          showGalleryItem(currentGalleryIdx + 1);
+        }
+      }, autoAdvanceDelay);
+    }
+
+    function stopLightboxTimer() {
+      if (lightboxSlideTimer) {
+        clearTimeout(lightboxSlideTimer);
+        lightboxSlideTimer = null;
+      }
+    }
+
+    function closeLightbox() {
+      stopLightboxTimer();
       lightboxVideo?.pause();
       if (lightboxVideo) {
         lightboxVideo.currentTime = 0;
@@ -241,21 +287,49 @@ document.addEventListener('DOMContentLoaded', function () {
         lightboxVideo.removeAttribute('src');
         lightboxVideo.load();
       }
-      lightboxImg.style.display = 'block';
+      if (lightboxImg) lightboxImg.style.display = 'block';
       lightboxModal.classList.remove('active');
+    }
+
+    galleryItems.forEach((item, idx) => {
+      item.addEventListener('click', function () {
+        showGalleryItem(idx);
+        lightboxModal.classList.add('active');
+      });
     });
+
+    lightboxNext?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showGalleryItem(currentGalleryIdx + 1);
+    });
+
+    lightboxPrev?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showGalleryItem(currentGalleryIdx - 1);
+    });
+
+    lightboxClose?.addEventListener('click', closeLightbox);
 
     lightboxModal.addEventListener('click', (e) => {
       if (e.target === lightboxModal) {
-        lightboxVideo?.pause();
-        if (lightboxVideo) {
-          lightboxVideo.currentTime = 0;
-          lightboxVideo.style.display = 'none';
-          lightboxVideo.removeAttribute('src');
-          lightboxVideo.load();
-        }
-        lightboxImg.style.display = 'block';
-        lightboxModal.classList.remove('active');
+        closeLightbox();
+      }
+    });
+
+    // Keyboard Navigation (Left/Right Arrows to navigate, Esc to close)
+    document.addEventListener('keydown', (e) => {
+      if (!lightboxModal.classList.contains('active')) return;
+      if (e.key === 'ArrowRight') showGalleryItem(currentGalleryIdx + 1);
+      if (e.key === 'ArrowLeft') showGalleryItem(currentGalleryIdx - 1);
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // Pause auto-slideshow when hovering over media
+    const mediaContainer = lightboxModal.querySelector('.lightbox-media-wrap') || lightboxModal;
+    mediaContainer.addEventListener('mouseenter', stopLightboxTimer);
+    mediaContainer.addEventListener('mouseleave', () => {
+      if (lightboxModal.classList.contains('active') && (!lightboxVideo || lightboxVideo.style.display === 'none')) {
+        startLightboxTimer();
       }
     });
   }
@@ -503,6 +577,60 @@ document.addEventListener('DOMContentLoaded', function () {
     // Start auto slide if page loads in mobile view
     if (isMobileView()) {
       startAutoTestimonials();
+    }
+  }
+
+  // 11. Signature Expertise Cards Sequential Auto-Image Crossfade Animation
+  // Cards change images one after another in order (Card 1 -> Card 2 -> Card 3 -> Card 4 -> repeat)
+  const expertiseSliders = document.querySelectorAll('.expertise-cameron-card .feature-card-slider, .expertise-cameron-card .expertise-cameron-img-wrap');
+  if (expertiseSliders.length > 0) {
+    let currentCardIndex = 0;
+    const stepDuration = 1100; // 1.1 seconds between each card changing
+    let sequentialTimer = null;
+
+    // Track slide index for each card
+    const cardSlideStates = Array.from(expertiseSliders).map(slider => {
+      const slides = slider.querySelectorAll('.card-slide');
+      return {
+        slider,
+        slides,
+        currentIndex: 0
+      };
+    });
+
+    function advanceNextCard() {
+      const cardState = cardSlideStates[currentCardIndex];
+      if (cardState && cardState.slides.length > 1) {
+        cardState.slides[cardState.currentIndex].classList.remove('active');
+        cardState.currentIndex = (cardState.currentIndex + 1) % cardState.slides.length;
+        cardState.slides[cardState.currentIndex].classList.add('active');
+      }
+
+      // Move to next card in sequence (Card 1 -> Card 2 -> Card 3 -> Card 4 -> repeat)
+      currentCardIndex = (currentCardIndex + 1) % cardSlideStates.length;
+    }
+
+    function startSequentialLoop() {
+      if (!sequentialTimer) {
+        sequentialTimer = setInterval(advanceNextCard, stepDuration);
+      }
+    }
+
+    function stopSequentialLoop() {
+      if (sequentialTimer) {
+        clearInterval(sequentialTimer);
+        sequentialTimer = null;
+      }
+    }
+
+    // Start running the sequential slideshow
+    startSequentialLoop();
+
+    // Pause animation when hovering over the grid or any card
+    const expertiseGrid = document.querySelector('.expertise-cameron-grid');
+    if (expertiseGrid) {
+      expertiseGrid.addEventListener('mouseenter', stopSequentialLoop);
+      expertiseGrid.addEventListener('mouseleave', startSequentialLoop);
     }
   }
 });
